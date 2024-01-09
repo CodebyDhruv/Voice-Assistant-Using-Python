@@ -188,12 +188,12 @@ if __name__ == '__main__':
             speak("Rolling Dice")
             def display_dice(number, root):
               dice_images = [
-             "dice1.png",
-             "dice2.png",
-             "dice3.png",
-             "dice4.png",
-             "dice5.png",
-             "dice6.png",
+             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice1.png",
+             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice2.png",
+             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice3.png",
+             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice4.png",
+             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice5.png",
+             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice6.png",
              ]
 
               image_path = dice_images[number - 1]
@@ -402,7 +402,7 @@ if __name__ == '__main__':
             speak('Opening Notepad')
             speak("What should i write, sir")
             note = take_command()
-            file = open('C:/Users/Dell/Desktop/Voice Assistant using Python/New Text File.txt', 'w')
+            file = open('C:/Users/Dell/Desktop/Voice Assistant using Python/Note/New Text File.txt', 'w')
             speak("Sir, Should i include date and time")
             snfm = take_command()
             if 'yes' in snfm or 'sure' in snfm:
@@ -415,7 +415,7 @@ if __name__ == '__main__':
          
         elif "show note" in query:
             speak("Showing Notes")
-            file = open("C:/Users/Dell/Desktop/Voice Assistant using Python/New Text File.txt", "r") 
+            file = open("C:/Users/Dell/Desktop/Voice Assistant using Python/Note/New Text File.txt", "r") 
             print(file.read())
             speak(file.read(6))
  
