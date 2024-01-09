@@ -104,7 +104,7 @@ def sendEmail(to, content):
     server.sendmail('your email id', to, content)
     server.close()
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 def chatgpt_query(query):
     response = openai.Completion.create(
