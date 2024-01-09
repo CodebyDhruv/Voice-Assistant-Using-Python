@@ -127,13 +127,13 @@ if __name__ == '__main__':
          
         query = take_command().lower()
 
-        if 'chat' in query or 'on chatgpt' in query:
+        if 'chat' in query:
          speak('Sure, what would you like to chat about?')
          user_input = take_command().lower()
          chatgpt_response = chatgpt_query(user_input)
          speak(chatgpt_response)
 
-        if 'Open chatgpt' in query:
+        if 'gpt' in query:
             speak("Opening Chat GPT")
             webbrowser.open("https://chat.openai.com/")
 
