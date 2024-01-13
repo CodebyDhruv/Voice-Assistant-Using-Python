@@ -20,7 +20,6 @@ import ctypes
 import time
 import requests
 import shutil
-import openai
 from twilio.rest import Client
 from PIL import Image, ImageTk
 from clint.textui import progress
@@ -104,16 +103,6 @@ def sendEmail(to, content):
     server.sendmail('your email id', to, content)
     server.close()
 
-openai.api_key = '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'
-
-def chatgpt_query(query):
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=query,
-        max_tokens=300
-    )
-    return response.choices[0].text.strip()
-
 
 if __name__ == '__main__':
     clear = lambda: os.system('cls')
@@ -127,17 +116,11 @@ if __name__ == '__main__':
          
         query = take_command().lower()
 
-        if 'chat' in query:
-         speak('Sure, what would you like to chat about?')
-         user_input = take_command().lower()
-         chatgpt_response = chatgpt_query(user_input)
-         speak(chatgpt_response)
-
         if 'gpt' in query:
             speak("Opening Chat GPT")
             webbrowser.open("https://chat.openai.com/")
 
-        if 'wikipedia' in query or 'internet' in query:
+        if 'wikipedia' in query:
             speak('Searching...')
             query = query.replace("wikipedia", "")
             results = wikipedia.summary(query, sentences = 3)
@@ -186,30 +169,30 @@ if __name__ == '__main__':
 
         elif "roll dice" in query or "roll a dice" in query:
             speak("Rolling Dice")
-            def display_dice(number, root):
-              dice_images = [
-             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice1.png",
-             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice2.png",
-             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice3.png",
-             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice4.png",
-             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice5.png",
-             "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice6.png",
-             ]
+            # def display_dice(number, root):
+            #   dice_images = [
+            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice1.png",
+            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice2.png",
+            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice3.png",
+            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice4.png",
+            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice5.png",
+            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice6.png",
+            #  ]
 
-              image_path = dice_images[number - 1]
-              image = Image.open(image_path)
+            #   image_path = dice_images[number - 1]
+            #   image = Image.open(image_path)
 
-              photo = ImageTk.PhotoImage(image)
+            #   photo = ImageTk.PhotoImage(image)
 
-              label = tk.Label(root, image=photo)
-              label.photo = photo  
-              label.pack()
+            #   label = tk.Label(root, image=photo)
+            #   label.photo = photo  
+            #   label.pack()
 
-              root.update_idletasks()
+            #   root.update_idletasks()
 
-              time.sleep(1)
+            #   time.sleep(1)
 
-              label.destroy()
+            #   label.destroy()
 
             def roll_dice():
              num_dice = random.randint(1, 6)  
@@ -257,7 +240,7 @@ if __name__ == '__main__':
             except Exception as e:
                 print(e)
                 speak("Sorry Sir,I am unable to send this email!")
- 
+ #Working
         elif 'how are you' in query:
             speak("I am fine, Thank you")
             speak("How are you, Sir?")
@@ -511,9 +494,5 @@ if __name__ == '__main__':
                 speak (next(res.results).text)
             except StopIteration:
                 print ("No results")
-
-        else:
-            speak("I cant understand that sir! Please try again.")
-            print("I cant understand that sir! Please try again.")
 
     
