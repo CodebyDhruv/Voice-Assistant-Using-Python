@@ -271,10 +271,6 @@ if __name__ == '__main__':
                                                        0)
             speak("Background changed successfully")
  
-        elif 'open bluestack' in query:
-            appli = r"C:/ProgramData/Microsoft/Windows/Start Menu/Programs/BlueStacks X/BlueStacks X.lnk"
-            os.startfile(appli)
- 
         elif 'news' in query:
              
             try: 
