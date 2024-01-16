@@ -1,10 +1,8 @@
 import subprocess
 import wolframalpha
 import pyttsx3
-import tkinter
 import json
 import time
-import tkinter as tk
 import random
 import operator
 import speech_recognition as sr
@@ -17,7 +15,6 @@ import pyjokes
 import feedparser
 import smtplib
 import ctypes
-import time
 import requests
 import shutil
 from twilio.rest import Client
