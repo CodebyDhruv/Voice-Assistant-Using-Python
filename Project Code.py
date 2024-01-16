@@ -35,8 +35,6 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
 
-
-
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
@@ -169,49 +167,12 @@ if __name__ == '__main__':
 
         elif "roll dice" in query or "roll a dice" in query:
             speak("Rolling Dice")
-            # def display_dice(number, root):
-            #   dice_images = [
-            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice1.png",
-            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice2.png",
-            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice3.png",
-            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice4.png",
-            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice5.png",
-            #  "C:/Users/Dell/Desktop/Voice Assistant using Python/Dice Images/dice6.png",
-            #  ]
-
-            #   image_path = dice_images[number - 1]
-            #   image = Image.open(image_path)
-
-            #   photo = ImageTk.PhotoImage(image)
-
-            #   label = tk.Label(root, image=photo)
-            #   label.photo = photo  
-            #   label.pack()
-
-            #   root.update_idletasks()
-
-            #   time.sleep(1)
-
-            #   label.destroy()
 
             def roll_dice():
              num_dice = random.randint(1, 6)  
              print(f"Rolling dice...")
-
-             root = tk.Tk()
-             root.title("Rolling Dice")
-
              result = random.randint(1, 6)
              print("The number is:", result)
-
-             for _ in range(num_dice):
-              display_dice(result, root)
-
-             root.destroy()
-
-            if __name__ == "__main__":
-              roll_dice()
-
 
         elif 'open opera' in query:
             speak("opening opera")
@@ -240,7 +201,7 @@ if __name__ == '__main__':
             except Exception as e:
                 print(e)
                 speak("Sorry Sir,I am unable to send this email!")
- #Working
+
         elif 'how are you' in query:
             speak("I am fine, Thank you")
             speak("How are you, Sir?")
@@ -299,9 +260,6 @@ if __name__ == '__main__':
             speak("opening Power Point presentation")
             power = r"C:/ProgramData/Microsoft/Windows/Start Menu/Programs/PowerPoint.lnk"
             os.startfile(power)
- 
-        elif 'is love' in query:
-            speak("It is 7th sense that destroy all other senses.")
  
         elif "who are you" in query:
             speak("I am your virtual assistant created by Mister Dhruv")
