@@ -152,13 +152,9 @@ if __name__ == '__main__':
          speak(f"Sir, currently the time is {strTime}")
         
         elif "random number" in query:
-           speak("please provide the minimum value of the range")
-           content1=take_command()
-           speak("Please provide the maximum value of the range")
-           content2=take_command()
            speak("Generating a random number")
            print("Generating a random number:")
-           a=random.randint(content1,content2)
+           a=random.randint(1,1000)
            speak("The number is:",a)
            print("The number is:",a)
 
@@ -270,6 +266,10 @@ if __name__ == '__main__':
                                                        "Location of wallpaper",
                                                        0)
             speak("Background changed successfully")
+ 
+        elif 'open bluestack' in query:
+            appli = r"C:/ProgramData/Microsoft/Windows/Start Menu/Programs/BlueStacks X/BlueStacks X.lnk"
+            os.startfile(appli)
  
         elif 'news' in query:
              
