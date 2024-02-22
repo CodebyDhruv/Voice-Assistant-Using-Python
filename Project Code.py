@@ -63,7 +63,7 @@ def take_command():
   
     try:
         print("Recognizing...")    
-        query = r.recognize_google(audio, language ='en-in')
+        query = r.recognize_google(audio, language='en-US')
         print(f"User said: {query}\n")
   
     except Exception as e:
@@ -72,16 +72,17 @@ def take_command():
         return "None"
      
     return query
-
 def username():
-    speak("What should i call you sir!")
+    speak("What should I call you, sir!")
     uname = take_command()
+
     while not uname:  
         speak("I didn't get that. Please tell me your name again.")
         uname = take_command()
-    speak("Welcome Mister")
-    speak(uname)
+
+    speak("Welcome, Mister " + uname)
     columns = shutil.get_terminal_size().columns
+
      
     print("                      #####################".center(columns))
     print("Welcome Mr.", uname.center(columns))
@@ -135,28 +136,18 @@ if __name__ == '__main__':
             speak("Opening Stack Over flow.Happy coding")
             webbrowser.open("stackoverflow.com")   
  
-        elif 'play music' in query or "play song" in query or 'play a song' in query:
-
-           def play_specific_song(file_path):
-            speak("Playing song:")
-            os.startfile(file_path)
-
-           music_directory = "C:/Users/Dell/Desktop/PT/"
-           song_filename = "NEFFEX - Grateful [Copyright Free] No.54.mp3"
-           song_path = os.path.join(music_directory, song_filename)
-           play_specific_song(song_path)
-
         elif 'time' in query:
 
          strTime = datetime.datetime.now().strftime("%H:%M:%S")
          speak(f"Sir, currently the time is {strTime}")
         
         elif "random number" in query:
+           
            speak("Generating a random number")
            print("Generating a random number:")
            a=random.randint(1,1000)
-           speak("The number is:",a)
-           print("The number is:",a)
+           speak(f"The number is:{a}")
+           print(f"The number is:{a}")
 
         elif "roll dice" in query or "roll a dice" in query:
             speak("Rolling Dice")
@@ -171,29 +162,6 @@ if __name__ == '__main__':
             speak("opening opera")
             codePath = r"C:/Users/Dell/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Opera Browser.lnk"
             os.startfile(codePath)
- 
-        elif 'email to dhruv' in query:
-            try:
-                speak("What would you like to write in email?")
-                content = take_command()
-                to = "Receiver email address"   
-                sendEmail(to, content)
-                speak("Email has been sent !")
-            except Exception as e:
-                print(e)
-                speak("Sorry Sir,I am unable to send this email!")
- 
-        elif 'send a mail' in query:
-            try:
-                speak("What would you like to write in email?")
-                content = take_command()
-                speak("To whom should i send?")
-                to = input()    
-                sendEmail(to, content)
-                speak("Email has been sent !")
-            except Exception as e:
-                print(e)
-                speak("Sorry Sir,I am unable to send this email!")
 
         elif 'how are you' in query:
             speak("I am fine, Thank you")
@@ -249,11 +217,6 @@ if __name__ == '__main__':
         elif "why you came to world" in query:
             speak("Thanks to Dhruv. Further It's a secret")
  
-        elif 'power point presentation' in query or "ppt" in query:
-            speak("opening Power Point presentation")
-            power = r"C:/ProgramData/Microsoft/Windows/Start Menu/Programs/PowerPoint.lnk"
-            os.startfile(power)
- 
         elif "who are you" in query:
             speak("I am your virtual assistant created by Mister Dhruv")
  
@@ -266,31 +229,6 @@ if __name__ == '__main__':
                                                        "Location of wallpaper",
                                                        0)
             speak("Background changed successfully")
- 
-        elif 'open bluestack' in query:
-            appli = r"C:/ProgramData/Microsoft/Windows/Start Menu/Programs/BlueStacks X/BlueStacks X.lnk"
-            os.startfile(appli)
- 
-        elif 'news' in query:
-             
-            try: 
-                jsonObj = urlopen('''https://newsapi.org / v1 / articles?source = the-times-of-india&sortBy = top&apiKey =\\4fdaf978fc204e7099996bcf09850996\\''')
-                data = json.load(jsonObj)
-                i = 1
-                 
-                speak('here are some top news from the times of india')
-                print('''=============== TIMES OF INDIA ============'''+ '\n')
-                 
-                for item in data['articles']:
-                     
-                    print(str(i) + '. ' + item['title'] + '\n')
-                    print(item['description'] + '\n')
-                    speak(str(i) + '. ' + item['title'] + '\n')
-                    i += 1
-            except Exception as e:
-                 
-                print(str(e))
- 
          
         elif 'lock window' in query:
                 speak("locking the device")
@@ -433,7 +371,7 @@ if __name__ == '__main__':
             speak("I'm fine, glad you me that")
  
         elif "i love you" in query:
-            speak("It's hard to understand")
+            speak("I am sorry, I don't")
  
         elif "what is" in query or "who is" in query:
              
